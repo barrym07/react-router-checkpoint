@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import { Link } from 'react-router-dom'
 import { Tabs, Tab, Box, Typography } from '@mui/material';
 import { PropTypes } from 'prop-types';
+
 
 function Profiles(contacts) {
   const profileContacts = contacts.contacts;
@@ -11,6 +12,18 @@ function Profiles(contacts) {
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
+
+    function LinkTab(props) {
+      return (
+        <Tab
+          component="a"
+          onClick={(event) => {
+            event.preventDefault();
+          }}
+          {...props}
+        />
+      );
+    }
 
     return (
       <div
@@ -61,20 +74,19 @@ function Profiles(contacts) {
             sx={{ borderRight: 1, borderColor: 'divider' }}
           >
             {profileContacts.map(contact => (
-
-
-              <Tab label={contact.firstName} {...a11yProps(0)} />
-
-
-
+              <>
+                <Tab  {...a11yProps(contact.id)} />
+                <Link to={`/profiles/${contact.id}`}>{contact.firstName} {contact.lastName}</Link>
+              </>
             ))}
           </Tabs>
+
           {/* {profileContacts.map(contactP => (
             <>
 
 
 
-              <TabPanel value={value} index={0}>
+              <TabPanel value={value} index={contactP.id}>
                 {contactP.firstName} {contactP.lastName}
               </TabPanel>
             </>
@@ -88,43 +100,7 @@ function Profiles(contacts) {
 
 export default Profiles;
 
-// As a user, when I click the Profiles buttons in the navigation bar, I am sent to "Profiles" page so I can see a list of my contacts.
+// This didn't work out the way I intended. I wanted it to show a list on the list left and when you click it will load the profile and keep the list. I couldn't get it to work with router functions. It works just fine with normal react.
 
 
-{/* <Tabs
-orientation="vertical"
-variant="scrollable"
-value={value}
-onChange={handleChange}
-aria-label="Vertical tabs example"
-sx={{ borderRight: 1, borderColor: 'divider' }}
->
-<Tab label="Item One" {...a11yProps(0)} />
-<Tab label="Item Two" {...a11yProps(1)} />
-<Tab label="Item Three" {...a11yProps(2)} />
-<Tab label="Item Four" {...a11yProps(3)} />
-<Tab label="Item Five" {...a11yProps(4)} />
-<Tab label="Item Six" {...a11yProps(5)} />
-<Tab label="Item Seven" {...a11yProps(6)} />
-</Tabs>
-<TabPanel value={value} index={0}>
-Item One
-</TabPanel>
-<TabPanel value={value} index={1}>
-Item Two
-</TabPanel>
-<TabPanel value={value} index={2}>
-Item Three
-</TabPanel>
-<TabPanel value={value} index={3}>
-Item Four
-</TabPanel>
-<TabPanel value={value} index={4}>
-Item Five
-</TabPanel>
-<TabPanel value={value} index={5}>
-Item Six
-</TabPanel>
-<TabPanel value={value} index={6}>
-Item Seven
-</TabPanel> */}
+

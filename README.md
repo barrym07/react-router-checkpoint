@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+### Issues
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+I couldn't figure out how to make a contact list that is persistent when you click on the profiles. I improvised and used an accordion to contain the profiles.
 
-## Available Scripts
+# React Router Checkpoint
 
-In the project directory, you can run:
+This project will have you creating a social-networking application using create-react-app. For the purposes of this application you will develop a Minimum Viable Product (MVP) that meets the criteria outlined in the user stories below. You will create a new repository for this on Github and submit a link to your repository.
 
-### `npm start`
+As you build this project, don't worry about pulling/persisting data, you will create an in-memory data store. The intention is to focus on both the routing and nested routing of this application.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The primary user should have the following:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+A list of News Articles they care about.
+A list of secondary profiles they are "connected to".
+Each secondary profile should have the following:
 
-### `npm test`
+First Name
+Last Name
+Birthday
+A profile pic (can be relative or external url)
+Your profiles and news feed data should be hard coded to look something like this:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+{
+    newsArticles: [
+        {
+            title: "Winning at Life!",
+            article: "There are many ways to do so...but the best is just try, try, try again!"
+        }
+        //add more stories here in this array!
+    ],
+    contactProfiles: [
+        {
+            firstName: "Willie",
+            lastName: "Dustice",
+            birthday: "01/01/1978 00:00:00",
+            profileImage: "/url-to-an-image.jpeg"
+        }
+    ]
+}
 
-### `npm run build`
+## User Stories
+Root Route: "/"
+As a user, when I navigate to "/" (the root) or when I click the Home button, I am directed to "My Profile Page" with navbar at the top of the page with three buttons (Home, About, Profiles) so that I can see my own profile with my news feed showing the News Articles that I care about.
+About Us Route: "/about"
+As a user, when I click the About button in the navbar, I am directed to the "About Us" page with a small blurb about social-networking company so that I can learn a more about their business.
+Profile View: "/profiles"
+As a user, when I click the Profiles buttons in the navigation bar, I am sent to "Profiles" page so I can see a list of my contacts.
+User Profile Route: "/profiles/:id"
+As a user, when I click on a contacts name in the contact list, I should see their profile alongside the contact list so that I can continue to click through different contacts and see their profiles without navigating away from the contact list.
+Pictures Route: "/profiles/:id/profile-image/"
+As a user, I can click the profile picture link in one of my contact's profiles so that I can see an enlarged version of their profile picture.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
