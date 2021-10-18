@@ -1,19 +1,18 @@
-import { React, useState, useEffect } from 'react';
+import { React } from 'react';
 import './App.css';
-
 import { Card, CardContent, Typography, } from '@mui/material';
 
 function Home(news) {
-  console.log('news from home', news)
+  // console.log('news from home', news)
   const homeNews = news.news;
-  console.log('homeNews', homeNews)
+  // console.log('homeNews', homeNews)
 
   return (
     < div >
-      {/* <p>cards for each news article need to be rendered here</p> */}
+      <p>Interesting articles, as determined by our advanced algorithm.</p>
       {
         homeNews.map(art => (
-          <Card sx={{ minWidth: 275 }}>
+          <Card sx={{ minWidth: 225 }}>
             <CardContent>
               <Typography variant="h5" component="div">
                 {art.title}

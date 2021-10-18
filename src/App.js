@@ -4,7 +4,7 @@ import Nav from './Nav.js';
 import Home from './Home.js';
 import About from './About.js';
 import Profiles from './Profiles.js'
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 function App() {
   const data = {
@@ -69,14 +69,16 @@ function App() {
     ]
   };
 
-  const [news, setNews] = useState([data.newsArticles])
-  useEffect(() => {
-    setNews(data.newsArticles);
+  const [news, setNews] = useState(data.newsArticles)
+  const [contacts, setContacts] = useState(data.contactProfiles)
+  // useEffect(() => {
+  //   setNews(data.newsArticles);
+  //   setContacts(data.contactProfiles);
 
 
-  }, [data.newsArticles]
-  );
-  console.log("news from app", news)
+  // }, [data.newsArticles, data.contactProfiles]
+  // );
+
 
 
 
@@ -87,7 +89,7 @@ function App() {
       <Switch>
         <Route path="/" exact render={() => <Home news={news} />} />
         <Route path="/about" component={About} />
-        <Route path="/profiles" exact component={Profiles} />
+        <Route path="/profiles" exact render={() => <Profiles contacts={contacts} />} />
         {/* <Route path="/profiles/:name" component={ProfileDetails} /> */}
 
       </Switch>
