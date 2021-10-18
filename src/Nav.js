@@ -6,6 +6,7 @@ function Nav() {
 
   const navStyle = {
     color: 'white'
+
   }
 
   return (
